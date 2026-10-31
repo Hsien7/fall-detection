@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系統登入</title>
+    <link rel="stylesheet" href="s.css">
+    <style>
+        body{
+            background-image: url('S.jpg')!important;
+            background-size: cover !important; /*自動縮放填滿 */
+            background-position: center !important;/*圖片置中 */
+            background-repeat: no-repeat !important;/*背景不重複 */
+            background-attachment: fixed !important; /*背景固定不動 */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            min-height: 500px;
+            padding: 20px;
+            margin: 0;
+        }
+        @media (max-width: 1000px) {
+            body {
+                background-image: url('o.jpg')!important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="登入">
+        <h1>登入系統</h1>
+        <form class="表單" id="loginForm">
+            <label for="username">使用者名稱：</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">密碼：</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">登入</button>
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 防止表單提交後頁面刷新
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        const data = {
+            admin:{
+                username:'admin',
+                password:'admin123'
+            },
+            user:{
+                username:'user',
+                password:'user321'
+            }
+        };
+        // 驗證
+        if (username === 'admin' && password === 'admin123') {
+            sessionStorage.setItem('login', 'admin');
+            alert('管理者登入成功！');
+            // 登入成功跳轉到頁面
+            window.location.href = 'admin/page.html';
+        } else if (username === 'user' && password === 'user321') {
+            sessionStorage.setItem('login', 'user');
+            alert('使用者登入成功！');
+            window.location.href = 'user/page.html';
+        } else {
+            alert('帳號或密碼錯誤！');
+        }
+    });
+</script>
+</html>

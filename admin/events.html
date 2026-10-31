@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b5fa5" />
+    <meta name="description" content="雙鏡頭熱成像跌倒偵測系統事件紀錄" />
+    <title>事件紀錄｜雙鏡頭熱成像跌倒偵測</title>
+    <link rel="stylesheet" href="/s.css" />
+    <style>
+        body.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+    </style>
+  </head>
+  <body class="hidden">
+    <div class="系統外框">
+      <aside class="側邊欄" aria-label="系統導覽">
+        <div class="品牌標誌組">
+          <div><strong>雙鏡頭熱成像跌倒偵測</strong><small>系統監控</small></div>
+        </div>
+        <nav class="導覽清單" aria-label="系統頁面">
+          <a class="導覽項目" href="page.html"><span class="導覽圖示" aria-hidden="true">▣</span><span>即時監測</span></a>
+          <a class="導覽項目 目前選取" href="events.html" aria-current="page"><span class="導覽圖示" aria-hidden="true">☷</span><span>事件紀錄</span></a>
+          <a class="導覽項目" href="analytics.html"><span class="導覽圖示" aria-hidden="true">⌁</span><span>統計分析</span></a>
+          <a class="導覽項目" href="notion.html"><span class="導覽圖示" aria-hidden="true">♢</span><span>通知管道</span></a>
+          <a class="導覽項目" href="users.html"><span class="導覽圖示" aria-hidden="true">♙</span><span>使用者管理</span></a>
+        </nav>
+        <div class="側邊欄說明"><span aria-hidden="true">✦</span><strong>安心守護每一天</strong><p>監測狀態一覽無遺</p></div>
+      </aside>
+      <main class="主要內容">
+        <header class="頂部工具列">
+          <a href="/index.html">
+            <button class="登出" type="button">登出</button>
+          </a>
+          <div class="導覽"><span>雙鏡頭熱成像跌倒偵測</span><span aria-hidden="true">/</span><strong>事件紀錄</strong></div>
+          <span class="連線狀態"><i aria-hidden="true"></i>系統連線正常</span>
+        </header>
+        <div class="內容捲動區">
+            <div class="頁面容器">
+                <section aria-label="事件紀錄">
+                    <div class="頁面標題區"><div><p class="頁首小標">即時照護</p><h1>事件<span>紀錄</span></h1></div>
+                </section>
+            </div>
+    </div>
+      </main>
+    </div>
+  </body>
+  <script>
+    if (sessionStorage.getItem('login') === 'admin') {
+      document.body.classList.remove('hidden');
+    }else if (sessionStorage.getItem('login') !== 'admin') {
+      alert('請先登入系統！');
+      window.location.href = '/index.html';
+    }
+  </script>
+</html>
